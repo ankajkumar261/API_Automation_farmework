@@ -1,5 +1,6 @@
 package com.Ankajkumar.pojos.requestPOJO.restfulbooker;
 
+
 public class BookingDates {
 
     private String checkin;
