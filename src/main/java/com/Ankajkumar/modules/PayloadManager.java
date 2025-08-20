@@ -1,5 +1,8 @@
 package com.Ankajkumar.modules;
+import com.Ankajkumar.pojos.requestPOJO.restfulbooker.Auth;
 import com.Ankajkumar.pojos.requestPOJO.restfulbooker.Booking;
+import com.Ankajkumar.pojos.responsePOJO.restfulbooker.InvalidTokenResponse;
+import com.Ankajkumar.pojos.responsePOJO.restfulbooker.TokenResponse;
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
 
@@ -10,12 +13,12 @@ public class PayloadManager {
 
     // The responsibility of POJO is to serialization and deserialization.
 
-    Gson gson=new Gson();
+    Gson gson = new Gson();
     Faker faker;
 
     // Convert the Java Object into the JSON String to use as Payload.
     // Serialization
-    public String createPayloadBookingAsString(){
+    public String createPayloadBookingAsString() {
 
         Booking booking = new Booking();
         booking.setFirstname("Lucky");
@@ -44,13 +47,14 @@ public class PayloadManager {
 //            "additionalneeds" : "Breakfast"
 //        }
     }
-    public String createPayloadBookingAsStringWrongBody(){
+
+    public String createPayloadBookingAsStringWrongBody() {
         Booking booking = new Booking();
         booking.setFirstname("会意; 會意");
         booking.setLastname("会意; 會意");
         booking.setTotalprice(112);
         booking.setDepositpaid(false);
-        
+
 
         BookingDates bookingdates = new BookingDates();
         bookingdates.setCheckin("5025-02-01");
@@ -65,7 +69,8 @@ public class PayloadManager {
         String jsonStringBooking = gson.toJson(booking);
         return jsonStringBooking;
     }
-    public String createPayloadBookingFakerJS(){
+
+    public String createPayloadBookingFakerJS() {
         //  This option is you dynamically generate the first name,
         //  last name and other variables.
         faker = new Faker();
@@ -105,6 +110,46 @@ public class PayloadManager {
         BookingResponse bookingResponse = gson.fromJson(responseString, BookingResponse.class);
         return bookingResponse;
     }
+
+    public Booking getResponseFromJSON(String responseString) {
+        gson = new Gson();
+        Booking bookingResponse = gson.fromJson(responseString, Booking.class);
+        return bookingResponse;
+    }
+
+    // Serialization or deserialization of an object is not present.
+    // So we need to create.
+
+    // We convert the JSON string to the Java object for auth.
+    // {
+    //    "username" : "admin",
+    //    "password" : "password123"
+    //}
+
+    public String setAuthPayload() {
+        Auth auth = new Auth();
+        auth.setUsername("admin");
+        auth.setPassword("password123");
+        gson = new Gson();
+        String jsonPayloadString = gson.toJson(auth);
+        System.out.println("payload to set ->"+ jsonPayloadString);
+        return jsonPayloadString;
+
+  }
+
+    public String getTokenFromJSON(String tokenResponse){
+        gson = new Gson();
+        TokenResponse tokenResponse1 = gson.fromJson(tokenResponse,TokenResponse.class);
+        return tokenResponse1.getToken();
+
+    }
+
+    public String getInvalidResponse(String invalidTokenResponse){
+        gson = new Gson();
+        InvalidTokenResponse TokenResponse1 = gson.fromJson(invalidTokenResponse,InvalidTokenResponse.class);
+        return TokenResponse1.getReason();
+    }
+
 
 
 }
