@@ -4,17 +4,16 @@ package com.Ankajkumar.base;
 
 import com.Ankajkumar.asserts.AssertActions;
 import com.Ankajkumar.endpoints.APIConstants;
-import com.Ankajkumar.modules.PayloadManager;
+import com.Ankajkumar.modules.VWOpayloadManager.VWOPayloadManager;
+import com.Ankajkumar.modules.restfulbooker.PayloadManager;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
@@ -29,7 +28,7 @@ public class BaseTest {
 
     public AssertActions assertActions;
     public PayloadManager payloadManager;
-    //public VWOPayloadManager vwoPayloadManager;
+    public VWOPayloadManager vwoPayloadManager;
     public JsonPath jsonPath;
 
     @BeforeTest
@@ -37,7 +36,7 @@ public class BaseTest {
 
         System.out.println("Starting of the Test");
         payloadManager = new PayloadManager();
-        // vwoPayloadManager = new VWOPayloadManager();
+        vwoPayloadManager = new VWOPayloadManager();
         assertActions = new AssertActions();
 
 //        requestSpecification = RestAssured.given();
@@ -51,6 +50,7 @@ public class BaseTest {
 
 
     }
+
 
     @AfterTest
     public void tearDown() {

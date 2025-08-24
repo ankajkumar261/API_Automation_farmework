@@ -17,7 +17,6 @@ import com.Ankajkumar.base.BaseTest;
 import com.Ankajkumar.endpoints.APIConstants;
 import com.Ankajkumar.pojos.requestPOJO.restfulbooker.Booking;
 import com.Ankajkumar.pojos.responsePOJO.restfulbooker.BookingResponse;
-import com.google.gson.Gson;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.restassured.RestAssured;

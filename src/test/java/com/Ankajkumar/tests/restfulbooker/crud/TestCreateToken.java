@@ -1,6 +1,5 @@
 package com.Ankajkumar.tests.restfulbooker.crud;
 
-import com.Ankajkumar.asserts.AssertActions;
 import com.Ankajkumar.base.BaseTest;
 import com.Ankajkumar.endpoints.APIConstants;
 import io.qameta.allure.Description;

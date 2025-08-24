@@ -1,7 +1,6 @@
 package com.Ankajkumar.tests.restfulbooker.crud;
 
 
-import com.Ankajkumar.asserts.AssertActions;
 import com.Ankajkumar.base.BaseTest;
 import com.Ankajkumar.endpoints.APIConstants;
 import com.Ankajkumar.pojos.responsePOJO.restfulbooker.BookingResponse;
@@ -9,7 +8,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.testng.annotations.Test;
 public class TestCreateBooking extends BaseTest {
 

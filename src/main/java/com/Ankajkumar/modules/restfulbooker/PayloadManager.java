@@ -1,4 +1,4 @@
-package com.Ankajkumar.modules;
+package com.Ankajkumar.modules.restfulbooker;
 import com.Ankajkumar.pojos.requestPOJO.restfulbooker.Auth;
 import com.Ankajkumar.pojos.requestPOJO.restfulbooker.Booking;
 import com.Ankajkumar.pojos.responsePOJO.restfulbooker.InvalidTokenResponse;
